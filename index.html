@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LoL Random Picker</title>
+  <style>
+    body {
+      background: #111827;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      background: #1f2937;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      width: 350px;
+    }
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 12px;
+      background: #4f46e5;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover { background: #6366f1; }
+    .champ { font-size: 32px; font-weight: bold; color: #a78bfa; }
+    .role { font-size: 22px; font-weight: bold; color: #7dd3fc; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🎲 LoL Random Picker</h1>
+    <button onclick="roll()">Genera Campione</button>
+
+    <div id="result" style="margin-top: 20px; display:none;">
+      <p>Il tuo campione:</p>
+      <p id="champion" class="champ"></p>
+      <p>Ruolo assegnato:</p>
+      <p id="role" class="role"></p>
+    </div>
+  </div>
+
+  <script>
+    const champions = [
+      "Aatrox","Ahri","Akali","Akshan","Alistar","Amumu","Anivia","Annie","Aphelios","Ashe",
+      "Aurelion Sol","Azir","Bard","Bel'Veth","Blitzcrank","Brand","Braum","Caitlyn","Camille","Cassiopeia",
+      "Cho'Gath","Corki","Darius","Diana","Dr. Mundo","Draven","Ekko","Elise","Evelynn","Ezreal",
+      "Fiddlesticks","Fiora","Fizz","Galio","Gangplank","Garen","Gnar","Gragas","Graves","Gwen",
+      "Hecarim","Heimerdinger","Illaoi","Irelia","Ivern","Janna","Jarvan IV","Jax","Jayce","Jhin",
+      "Jinx","Kai'Sa","Kalista","Karma","Karthus","Kassadin","Katarina","Kayle","Kayn","Kennen",
+      "Kha'Zix","Kindred","Kled","Kog'Maw","LeBlanc","Lee Sin","Leona","Lillia","Lissandra","Lucian",
+      "Lulu","Lux","Malphite","Malzahar","Maokai","Master Yi","Miss Fortune","Mordekaiser","Morgana","Nami",
+      "Nasus","Nautilus","Neeko","Nidalee","Nocturne","Nunu & Willump","Olaf","Orianna","Ornn","Pantheon",
+      "Poppy","Pyke","Qiyana","Quinn","Rakan","Rammus","Rek'Sai","Rell","Renata Glasc","Renekton",
+      "Rengar","Riven","Rumble","Ryze","Samira","Sejuani","Senna","Seraphine","Sett","Shaco",
+      "Shen","Shyvana","Singed","Sion","Sivir","Skarner","Sona","Soraka","Swain","Sylas",
+      "Syndra","Tahm Kench","Taliyah","Talon","Taric","Teemo","Thresh","Tristana","Trundle","Tryndamere",
+      "Twisted Fate","Twitch","Udyr","Urgot","Varus","Vayne","Veigar","Vel'Koz","Vi","Viego",
+      "Viktor","Vladimir","Volibear","Warwick","Wukong","Xayah","Xerath","Xin Zhao","Yasuo","Yone",
+      "Yorick","Yuumi","Zac","Zed","Ziggs","Zilean","Zoe","Zyra"
+    ];
+
+    const roles = ["Top", "Jungle", "Mid", "ADC", "Support"];
+
+    function roll() {
+      const champ = champions[Math.floor(Math.random() * champions.length)];
+      const role = roles[Math.floor(Math.random() * roles.length)];
+
+      document.getElementById("champion").textContent = champ;
+      document.getElementById("role").textContent = role;
+      document.getElementById("result").style.display = "block";
+    }
+  </script>
+</body>
+</html>
